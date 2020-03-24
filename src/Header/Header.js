@@ -3,11 +3,17 @@ import "./Header.css";
 
 function Header () {
     return (
-        <header>
-            <h1 id="mainTitle">My Todo List Application</h1>
-            <h4>Keep all your things organised</h4>
-        </header>
-    )
+       
+               
+           
+        <div id="myDIV" className="header">
+        <h1 id="mainTitle">My To Do List</h1>
+        
+        <h4>Make it happen!</h4>
+       
+      </div>
+  
+    );
 }
 
 export default Header;
