@@ -1,8 +1,7 @@
 import React from "react";
 
-function TaskCount(){
-    return (
-        <p>You have 2 outstanding tasks</p>
-    );
+function TaskCount(props){
+    
+    return <p>You have {props.count} outstanding tasks</p>;
 }
 export default TaskCount;

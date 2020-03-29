@@ -7,15 +7,9 @@ function Task(props) {
   return (
     <div className="row taskRow">
       <div className="col-12 col-md-4">{props.text}</div>
-      <div className="col-6 col-md-2">
-        {props.urgent === true ? "URGENT" : ""}
-      </div>
-      <div className="col-6 col-md-2">
-        {moment(props.dueDate).format("ddd Do MMMM YYYY")}
-      </div>
-      <div className="col-6 col-md-2">
-        {props.completed === false && <button className="btn btn-primary">Mark as complete</button>}
-      </div>
+      <div className="col-6 col-md-2">{props.urgent === true ? "Urgent" : ""}</div>
+    <div className="col -12">{"Due by "}{props.dueDate}</div>
+      <div className="col-6 col-md-2">{props.completed === false && <button className="btn btn-primary">Mark as complete</button>}</div>
       <div className="col-6 col-md-2">
         <button className="btn btn-danger">Delete</button>
       </div>
