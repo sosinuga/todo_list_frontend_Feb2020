@@ -18,13 +18,14 @@ function AddNewTask(props) {
 
     }
     const handleAddTask = () => {
-
+    
         props.addNewTaskFunc(taskText, date, urgent);
     
         setTaskText("");
     }
 
     return (
+        
         <div className="row mb-3">
             <div className="col-4">
                 <input type="text" className="form-control" value={taskText} onChange={handleTextChange} />
