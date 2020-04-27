@@ -4,6 +4,7 @@ import Header from "./Header/Header.js";
 import TaskCount from "./TaskCount/TaskCount.js";
 import Task from "./Task/Task.js";
 import AddNewTask from "./AddNewTask";
+import { v4 as uuidv4} from 'uuid';
 
 //Click on the complete button
 //Our application needs to know this happens
@@ -18,42 +19,42 @@ function App() {
       completed: true,
       dueDate: "2020-03-31",
       urgent: true,
-      id: 1
+      id: uuidv4()
     },
     {
       text: "Homework",
       completed: false,
       dueDate: "2020-03-31",
       urgent: true,
-      id: 2
+      id: uuidv4()
     },
     {
       text: "Buy train tickets",
       completed: true,
       dueDate: "2020-04-06",
       urgent: false,
-      id: 3
+      id: uuidv4()
     },
     {
       text: "Return books to the library",
       completed: false,
       dueDate: "2020-04-02",
       urgent: false,
-      id: 4
+      id: uuidv4()
     },
     {
       text: "Do laundry",
       completed: true,
       dueDate: "2020-03-30",
       urgent: true,
-      id: 5
+      id: uuidv4()
     },
     {
       text: "Call dad",
       completed: true,
       dueDate: "2020-04-02",
       urgent: false,
-      id: 6
+      id: uuidv4()
     }
   ]);
   // function that deletes a task from the task array, and updates the state with the new array
@@ -83,7 +84,7 @@ const newTask = {
   dueDate: date,
   urgent: urgent,
   completed: false,
-  id: Math.random() * 100, // use the UUID package from NPM to 
+  id: uuidv4() // use the UUID package from NPM to 
 };
 
 //Create a new array of tasks which includes this new task
@@ -117,6 +118,7 @@ setTasks(newTasks)
                 dueDate={task.dueDate}
                 id={task.id}
               />
+              
             );
           })}
 
