@@ -1,10 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 import "./App.css";
 import Header from "./Header/Header.js";
 import TaskCount from "./TaskCount/TaskCount.js";
 import Task from "./Task/Task.js";
 import AddNewTask from "./AddNewTask";
-import { v4 as uuidv4} from 'uuid';
 
 //Click on the complete button
 //Our application needs to know this happens
@@ -12,86 +12,142 @@ import { v4 as uuidv4} from 'uuid';
 //Update the relevant task in the state (completed = true)
 function App() {
 
+  const [tasks, setTasks] = useState([]);
 
-  const [tasks, setTasks] = useState([
-    {
-      text: "Pay Bills",
-      completed: true,
-      dueDate: "2020-03-31",
-      urgent: true,
-      id: uuidv4()
-    },
-    {
-      text: "Homework",
-      completed: false,
-      dueDate: "2020-03-31",
-      urgent: true,
-      id: uuidv4()
-    },
-    {
-      text: "Buy train tickets",
-      completed: true,
-      dueDate: "2020-04-06",
-      urgent: false,
-      id: uuidv4()
-    },
-    {
-      text: "Return books to the library",
-      completed: false,
-      dueDate: "2020-04-02",
-      urgent: false,
-      id: uuidv4()
-    },
-    {
-      text: "Do laundry",
-      completed: true,
-      dueDate: "2020-03-30",
-      urgent: true,
-      id: uuidv4()
-    },
-    {
-      text: "Call dad",
-      completed: true,
-      dueDate: "2020-04-02",
-      urgent: false,
-      id: uuidv4()
-    }
-  ]);
+  // Only run this code once, when the component first mounts
+  useEffect(() => {
+    // Fetch tasks from Backend (GET)
+    axios.get("https://jov0vt0tt0.execute-api.eu-west-1.amazonaws.com/dev/tasks")
+      .then(response => {
+        console.log("Success", response.data);
+        setTasks(response.data);
+      })
+      .catch(err => {
+        console.log("Error", err);
+      });
+    // the array would normally contain values that may change, and React would run the above code WHEN that value changes
+    // "Array of dependencies"
+  }, []);
+
+
+  /* {
+     text: "Pay Bills",
+     completed: true,
+     dueDate: "2020-03-31",
+     urgent: true,
+     id: uuid()
+   },
+   {
+     text: "Homework",
+     completed: false,
+     dueDate: "2020-03-31",
+     urgent: true,
+     id: uuid()
+   },
+   {
+     text: "Buy train tickets",
+     completed: true,
+     dueDate: "2020-04-06",
+     urgent: false,
+     id: uuid()
+   },
+   {
+     text: "Return books to the library",
+     completed: false,
+     dueDate: "2020-04-02",
+     urgent: false,
+     id: uuid()
+   },
+   {
+     text: "Do laundry",
+     completed: true,
+     dueDate: "2020-03-30",
+     urgent: true,
+     id: uuid()
+   },
+   {
+     text: "Call dad",
+     completed: true,
+     dueDate: "2020-04-02",
+     urgent: false,
+     id: uuid()
+   }
+ ]);*/
+
   // function that deletes a task from the task array, and updates the state with the new array
   const deleteTask = (id) => {
-    const filteredTasks = tasks.filter((task) => {
-      return task.id !== id;
-    });
+    //Issue a DELETE request to my API via Postman
+    //If that resolves, THEN I will filter my tasks on the frontend to remove the task with the given ID
+    //If it rejects, I won't filter to delete from my frontend
 
-    setTasks(filteredTasks);
+    axios.delete(`https://jov0vt0tt0.execute-api.eu-west-1.amazonaws.com/dev/tasks/${id}`)
+      .then(response => {
+        const filteredTasks = tasks.filter(task => {
+          return task.TaskId !== id;
+        });
+        //update the state with the new (shorter) array
+        setTasks(filteredTasks);
+      })
+
+      .catch(err => {
+        console.log("API Error", err);
+      });
   };
+
 
   const markTaskComplete = (id) => {
-    const newTasks = tasks.map(task => {
-      if (task.id === id) {
-        task.completed = true;
-      }
-      return task;
-    });
+    axios.put(`https://jov0vt0tt0.execute-api.eu-west-1.amazonaws.com/dev/tasks/${id}`, {
+      Completed: false
+    })
+      .then((response) => {
+        //create a new array of updated tasks, where the completed property of the matching task has been updated
+        const completedTask = tasks.map((task) => {
+          if (task.TaskId === id && task.Completed !== 1) {
+            task.Completed = 1;
+          } else if (task.TaskId === id && task.Completed === 1) {
+            task.Completed = 0;
+          }
+          return task;
+        });
 
-    setTasks(newTasks);
-  };
-  
-  const addNewTask =(text, date, urgent) => {
+        setTasks(completedTask);
+      })
+      .catch((err) => {
+        console.log("Error updating Task", err);
+      });
+  }
+
+
+  const addNewTask = (text, date, urgent) => {
     // Create a new task object based on the date passed as parameters
-const newTask = {
-  text: text,
-  dueDate: date,
-  urgent: urgent,
-  completed: false,
-  id: uuidv4() // use the UUID package from NPM to 
-};
+    /*const newTask = {
+      Notes: text,
+      DueDate: date,
+      Urgent: urgent,
+      Completed: false,
+      id: uuid() // use the UUID package from NPM to 
+    };*/
 
-//Create a new array of tasks which includes this new task
-const newTasks = [...tasks, newTask];
+    axios.post("https://jov0vt0tt0.execute-api.eu-west-1.amazonaws.com/dev/tasks", {
+      Notes: text,
+      DueDate: date,
+      Urgent: urgent
+    })
+      .then(response => {
+        const newTask = response.data;
+        //Create a new array of tasks which includes this new task
+        if (newTask.Notes !== "" && newTask.DueDate !== "") {
+          const newTasks = [...tasks, newTask];
 
-// use the setTasks function to update the state
-setTasks(newTasks)
+          // use the setTasks function to update the state
+          setTasks(newTasks);
+        }
+
+      })
+      .catch(err => {
+        console.log("Error creating task", err);
+      });
+
   }
 
 
@@ -104,21 +160,23 @@ setTasks(newTasks)
         <TaskCount count={tasks.length} />
         <div className="container">
           <AddNewTask addNewTaskFunc={addNewTask} />
+        </div>
+        <div className="container">
           {/* Passing a prop of text to each Task component */}
-          {tasks.map((task) => {
+          {tasks.map(task => {
             return (
               <Task
-                key={task.id}
+                key={task.TaskId}
 
                 markTaskCompleteFunc={markTaskComplete}
                 deleteTaskFunc={deleteTask}
-                text={task.text}
-                urgent={task.urgent}
-                completed={task.completed}
-                dueDate={task.dueDate}
-                id={task.id}
+                text={task.Notes}
+                urgent={task.Urgent}
+                completed={task.Completed}
+                dueDate={task.DueDate}
+                id={task.TaskId}
               />
-              
+
             );
           })}
 

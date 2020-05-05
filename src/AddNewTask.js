@@ -31,11 +31,11 @@ function AddNewTask(props) {
 
     return (
         
-        <div className="row align-items-center">
-            <div className="col-10 col-md-7">
+        <div className="row m-1">
+            <div className="col-12 col-sm-12 col-md-4 col-lg-4">
                 <input type="text" className="form-control" value={taskText} onChange={handleTextChange} />
             </div>
-            <div className="col-10 col-md-3">
+            <div className="col--10 col-sm-5 col-md-3 col-lg-2">
                 <input type="date" className="form-control" value={date} onChange={handleDateChange} />
             </div>
             <div className="col-2">
@@ -44,7 +44,7 @@ function AddNewTask(props) {
                     Urgent
         </label>
             </div>
-            <div className="col-2">
+            <div className="col-12 col-sm-2 col-md-1 col-lg-2">
                 <button className="btn btn-primary" onClick={handleAddTask}>Add</button>
             </div>
         </div>
