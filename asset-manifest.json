@@ -1,22 +1,22 @@
 {
   "files": {
-    "main.css": "/todo_list_frontend_Feb2020/static/css/main.657003be.chunk.css",
-    "main.js": "/todo_list_frontend_Feb2020/static/js/main.a7197547.chunk.js",
-    "main.js.map": "/todo_list_frontend_Feb2020/static/js/main.a7197547.chunk.js.map",
-    "runtime-main.js": "/todo_list_frontend_Feb2020/static/js/runtime-main.71ced4e7.js",
-    "runtime-main.js.map": "/todo_list_frontend_Feb2020/static/js/runtime-main.71ced4e7.js.map",
-    "static/js/2.cfa35ca2.chunk.js": "/todo_list_frontend_Feb2020/static/js/2.cfa35ca2.chunk.js",
-    "static/js/2.cfa35ca2.chunk.js.map": "/todo_list_frontend_Feb2020/static/js/2.cfa35ca2.chunk.js.map",
+    "main.css": "/todo_list_frontend_Feb2020/static/css/main.fb325d56.chunk.css",
+    "main.js": "/todo_list_frontend_Feb2020/static/js/main.847f67db.chunk.js",
+    "main.js.map": "/todo_list_frontend_Feb2020/static/js/main.847f67db.chunk.js.map",
+    "runtime-main.js": "/todo_list_frontend_Feb2020/static/js/runtime-main.c2392dec.js",
+    "runtime-main.js.map": "/todo_list_frontend_Feb2020/static/js/runtime-main.c2392dec.js.map",
+    "static/js/2.8a754000.chunk.js": "/todo_list_frontend_Feb2020/static/js/2.8a754000.chunk.js",
+    "static/js/2.8a754000.chunk.js.map": "/todo_list_frontend_Feb2020/static/js/2.8a754000.chunk.js.map",
     "index.html": "/todo_list_frontend_Feb2020/index.html",
-    "precache-manifest.b4ca01b9997009ebadb97538667c2b0c.js": "/todo_list_frontend_Feb2020/precache-manifest.b4ca01b9997009ebadb97538667c2b0c.js",
+    "precache-manifest.ba5c5ad38e7752a9d761398baae2b459.js": "/todo_list_frontend_Feb2020/precache-manifest.ba5c5ad38e7752a9d761398baae2b459.js",
     "service-worker.js": "/todo_list_frontend_Feb2020/service-worker.js",
-    "static/css/main.657003be.chunk.css.map": "/todo_list_frontend_Feb2020/static/css/main.657003be.chunk.css.map",
-    "static/js/2.cfa35ca2.chunk.js.LICENSE.txt": "/todo_list_frontend_Feb2020/static/js/2.cfa35ca2.chunk.js.LICENSE.txt"
+    "static/css/main.fb325d56.chunk.css.map": "/todo_list_frontend_Feb2020/static/css/main.fb325d56.chunk.css.map",
+    "static/js/2.8a754000.chunk.js.LICENSE.txt": "/todo_list_frontend_Feb2020/static/js/2.8a754000.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.71ced4e7.js",
-    "static/js/2.cfa35ca2.chunk.js",
-    "static/css/main.657003be.chunk.css",
-    "static/js/main.a7197547.chunk.js"
+    "static/js/runtime-main.c2392dec.js",
+    "static/js/2.8a754000.chunk.js",
+    "static/css/main.fb325d56.chunk.css",
+    "static/js/main.847f67db.chunk.js"
   ]
 }
