@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/todo_list_frontend_Feb2020/static/css/main.fb325d56.chunk.css",
-    "main.js": "/todo_list_frontend_Feb2020/static/js/main.847f67db.chunk.js",
-    "main.js.map": "/todo_list_frontend_Feb2020/static/js/main.847f67db.chunk.js.map",
+    "main.js": "/todo_list_frontend_Feb2020/static/js/main.5397dd89.chunk.js",
+    "main.js.map": "/todo_list_frontend_Feb2020/static/js/main.5397dd89.chunk.js.map",
     "runtime-main.js": "/todo_list_frontend_Feb2020/static/js/runtime-main.c2392dec.js",
     "runtime-main.js.map": "/todo_list_frontend_Feb2020/static/js/runtime-main.c2392dec.js.map",
     "static/js/2.8a754000.chunk.js": "/todo_list_frontend_Feb2020/static/js/2.8a754000.chunk.js",
     "static/js/2.8a754000.chunk.js.map": "/todo_list_frontend_Feb2020/static/js/2.8a754000.chunk.js.map",
     "index.html": "/todo_list_frontend_Feb2020/index.html",
-    "precache-manifest.ba5c5ad38e7752a9d761398baae2b459.js": "/todo_list_frontend_Feb2020/precache-manifest.ba5c5ad38e7752a9d761398baae2b459.js",
+    "precache-manifest.ef38ff2f8f455dacd6da49d8af3af619.js": "/todo_list_frontend_Feb2020/precache-manifest.ef38ff2f8f455dacd6da49d8af3af619.js",
     "service-worker.js": "/todo_list_frontend_Feb2020/service-worker.js",
     "static/css/main.fb325d56.chunk.css.map": "/todo_list_frontend_Feb2020/static/css/main.fb325d56.chunk.css.map",
     "static/js/2.8a754000.chunk.js.LICENSE.txt": "/todo_list_frontend_Feb2020/static/js/2.8a754000.chunk.js.LICENSE.txt"
@@ -17,6 +17,6 @@
     "static/js/runtime-main.c2392dec.js",
     "static/js/2.8a754000.chunk.js",
     "static/css/main.fb325d56.chunk.css",
-    "static/js/main.847f67db.chunk.js"
+    "static/js/main.5397dd89.chunk.js"
   ]
 }
