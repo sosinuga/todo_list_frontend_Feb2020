@@ -18,19 +18,18 @@ function AddNewTask(props) {
 
     }
     const handleAddTask = () => {
-        if(taskText === ""){
+        if (taskText === "") {
             alert("Add a Task")
-        }else if(date === ""){
+        } else if (date === "") {
             alert("Select a date")
-        }else{
-        props.addNewTaskFunc(taskText, date, urgent);
-    
-        setTaskText("");
+        } else {
+            props.addNewTaskFunc(taskText, date, urgent);
+            setTaskText("");
         }
     }
 
     return (
-        
+
         <div className="row m-1">
             <div className="col-12 col-sm-12 col-md-4 col-lg-4">
                 <input type="text" className="form-control" value={taskText} onChange={handleTextChange} />

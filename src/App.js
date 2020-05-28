@@ -29,51 +29,6 @@ function App() {
     // "Array of dependencies"
   }, []);
 
-
-  /* {
-     text: "Pay Bills",
-     completed: true,
-     dueDate: "2020-03-31",
-     urgent: true,
-     id: uuid()
-   },
-   {
-     text: "Homework",
-     completed: false,
-     dueDate: "2020-03-31",
-     urgent: true,
-     id: uuid()
-   },
-   {
-     text: "Buy train tickets",
-     completed: true,
-     dueDate: "2020-04-06",
-     urgent: false,
-     id: uuid()
-   },
-   {
-     text: "Return books to the library",
-     completed: false,
-     dueDate: "2020-04-02",
-     urgent: false,
-     id: uuid()
-   },
-   {
-     text: "Do laundry",
-     completed: true,
-     dueDate: "2020-03-30",
-     urgent: true,
-     id: uuid()
-   },
-   {
-     text: "Call dad",
-     completed: true,
-     dueDate: "2020-04-02",
-     urgent: false,
-     id: uuid()
-   }
- ]);*/
-
   // function that deletes a task from the task array, and updates the state with the new array
   const deleteTask = (id) => {
     //Issue a DELETE request to my API via Postman
@@ -120,13 +75,6 @@ function App() {
 
   const addNewTask = (text, date, urgent) => {
     // Create a new task object based on the date passed as parameters
-    /*const newTask = {
-      Notes: text,
-      DueDate: date,
-      Urgent: urgent,
-      Completed: false,
-      id: uuid() // use the UUID package from NPM to 
-    };*/
 
     axios.post("https://hyy7me71d3.execute-api.eu-west-1.amazonaws.com/dev/tasks", {
       Notes: text,
